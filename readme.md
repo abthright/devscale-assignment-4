@@ -7,3 +7,7 @@ So this was good experience. here's recap :
 
 when integration hono :
 1. exported route file must have exactly named as "Route" otherwise it won't acknowledge it as route import
+
+when using fetch and RPC :
+1. Rookie mistake, you should do .json method to retrieve the body of the response. and always use await since .json method is async by nature.
+2. 
