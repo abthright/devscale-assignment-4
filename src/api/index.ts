@@ -2,6 +2,7 @@ import { Hono } from "hono"
 import { HTTPException } from "hono/http-exception"
 import { logger } from "hono/logger"
 import { profile } from "./modules/profile/route"
+import { auth } from "./modules/auth/route"
 
 
 const customLogger = (message: string, ...rest: string[]) => {
@@ -29,6 +30,7 @@ const app = new Hono()
       return c.text("Hello world")
    })
    .route("/profile", profile)
+   .route("/auth", auth)
 
 export default app
 export type AppType = typeof app

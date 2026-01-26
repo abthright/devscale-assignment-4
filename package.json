@@ -19,6 +19,7 @@
     "@tailwindcss/vite": "^4.1.18",
     "@tanstack/react-router": "^1.157.5",
     "@tanstack/react-start": "^1.157.5",
+    "bcrypt": "^6.0.0",
     "better-sqlite3": "^12.6.2",
     "dotenv": "^17.2.3",
     "hono": "^4.11.5",

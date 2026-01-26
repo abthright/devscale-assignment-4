@@ -14,6 +14,9 @@ export type AuthVariables = {
   user: AuthUser
 }
 
+// TODO : bro understand this auth and how it works, write it
+// so basically in /auth login we do some signing of jwt token using
+// id and the secret. i believe
 export const authMiddleware = async (
   c: Context<{ Variables: AuthVariables }>,
   next: Next,
@@ -28,6 +31,7 @@ export const authMiddleware = async (
   const token = authHeader.split(" ")[1]
 
   try {
+    // i believe verify here is reversing the token into user id
     const decoded = await verify(token, env.JWT_SECRET, "HS256") as { id: string }
     const user = await prisma.user.findUnique({
       where: { id: decoded.id },
@@ -39,7 +43,9 @@ export const authMiddleware = async (
         message: "Unauthorized: User not found"
       })
     }
-
+  
+    // and this set method from context object, it saves a value for
+    // later use with the next middleware or the endpoint itself
     c.set("user", user)
     await next()
   } catch (error) {
