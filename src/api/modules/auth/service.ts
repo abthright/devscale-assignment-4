@@ -32,7 +32,6 @@ export async function login(data: LoginInput) {
 
   if (!validPassword) throw new Error("Invalid credentials")
 
-  const accessToken = sign({ id: user.id}, env.JWT_SECRET )
-
+  const accessToken = await sign({ id: user.id}, env.JWT_SECRET )
   return { accessToken }
 } 
