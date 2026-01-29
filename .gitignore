@@ -1,7 +1,16 @@
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+
 node_modules/
-node_modules
+dist/
+.output/
+build/
 # Keep environment variables out of version control
 .env
+.env.*
 
 /src/generated/prisma
 
